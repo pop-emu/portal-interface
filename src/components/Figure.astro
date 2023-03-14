@@ -1,0 +1,27 @@
+---
+import "./Figure.css"
+
+interface Props {
+	index: number;
+}
+
+const {index} = Astro.props as Props;
+---
+
+<div data-index={index} data-id={0} data-variant={0} data-status={0} class="figure">
+	<p>{index}</p>
+	<p class="name">
+		None
+	</p>
+	<div id="buttons">
+		<button class="clearBtn">
+			Clear
+		</button>
+		<button class="loadBtn">
+			Load
+		</button>
+		<button class="saveBtn">
+			Save
+		</button>
+	</div>
+</div>
