@@ -1,7 +1,49 @@
-#figures {
+body {
+	background-color: #495867;
+	margin: 0px;
+	text-align: center;
+}
+
+h1 {
+	color: #D3C0CD;
+}
+
+button {
+	color: #6b4d57;
+}
+
+#topMenu {
 	display: flex;
 	flex-direction: column;
-	width: 450px;
-	background-color: gray;
-	border-radius: 5px;
+	align-items: center;
+	width: 250px;
+	margin: auto;
+}
+
+#buttons {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+#buttons button {
+	width: 70px;
+}
+
+#figures {
+	display: block;
+	margin: auto;
+	max-width: 900px;
+	border-color: #679436;
+	border-style: solid;
+	border-width: 7.5px;
+	border-radius: 25px;
+	column-count: 2;
+}
+
+@media (max-width: 920px)
+{
+	#figures {
+		column-count: 1;
+		max-width: 450px;
+	}
 }

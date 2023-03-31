@@ -8,14 +8,19 @@ import "./index.css"
 	<head>
 		<meta charset="utf-8" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="generator" content={Astro.generator} />
 		<title>Astro</title>
 	</head>
 	<body>
-		<input type="text" placeholder="0.0.0.0" pattern="^(?:[0-9]{1,3}\.){3}[0-9]{1,3}$" required>
-		<button id="connect">Connect</button>
-		<button id="update">update</button>
+		<div id="topMenu">
+			<h1>Portal Emulator</h1>
+			<input type="text" placeholder="0.0.0.0" pattern="^(?:[0-9]{1,3}\.){3}[0-9]{1,3}$" id="address" required>
+			<div id="buttons">
+				<button id="connect">Connect</button>
+				<button id="update">update</button>
+			</div>
+		</div>
 		<input type="file" id="fileElem" style="display:none" />
 		<div id="figures">
 			{
@@ -28,12 +33,17 @@ import "./index.css"
 </html>
 
 <script>
-	import { DEVICE_URL } from "../config"
 	import figuresList from "../assets/figures.json"
 
 	const connectButton = document.getElementById("connect")! as HTMLElement;
 	const updateButton = document.getElementById("update")! as HTMLElement;
 	const fileInput = document.getElementById("fileElem")! as HTMLElement;
+	const IPInput = document.getElementById("address")! as HTMLInputElement;
+
+	const DEVICE_URL = () => {
+		return `http://${IPInput.value!}`;
+	}
+
 
 	connectButton.onclick = () => {
 		Connect();
@@ -49,7 +59,7 @@ import "./index.css"
 
 		const file = element.files![0];
 
-		const response = await fetch(`${DEVICE_URL}/api/v1/figure/${index}/set`, {method: "POST", body: await file.arrayBuffer()});
+		const response = await fetch(`${DEVICE_URL()}/api/v1/figure/${index}/set`, {method: "POST", body: await file.arrayBuffer()});
 
 		console.log(response);
 
@@ -68,12 +78,12 @@ import "./index.css"
 
 	async function Connect()
 	{
-		let infoResponse = await fetch(DEVICE_URL + "/api/v1/info", {method: "GET"});
+		let infoResponse = await fetch(DEVICE_URL() + "/api/v1/info", {method: "GET"});
 
 		while(!infoResponse.ok)
 		{
 			console.log("retrying...")
-			infoResponse = await fetch(DEVICE_URL + "/api/v1/info", {method: "GET"});
+			infoResponse = await fetch(DEVICE_URL() + "/api/v1/info", {method: "GET"});
 		}
 
 		const info = await infoResponse.json();
@@ -85,7 +95,7 @@ import "./index.css"
 
 	async function UpdateStatus()
 	{
-		const statusResponse = await fetch(DEVICE_URL + "/api/v1/status", {method: "GET"});
+		const statusResponse = await fetch(DEVICE_URL() + "/api/v1/status", {method: "GET"});
 
 		console.log(statusResponse);
 
@@ -136,7 +146,7 @@ import "./index.css"
 
 		const index: number = parseInt(figure.dataset.index!);
 
-		const response = await fetch(`${DEVICE_URL}/api/v1/figure/${index}/clear`, {method: "POST"});
+		const response = await fetch(`${DEVICE_URL()}/api/v1/figure/${index}/clear`, {method: "POST"});
 
 		console.log(response);
 
@@ -151,7 +161,7 @@ import "./index.css"
 
 		const index: number = parseInt(figure.dataset.index!);
 
-		const response = await fetch(`${DEVICE_URL}/api/v1/figure/${index}/get`, {method: "GET"});
+		const response = await fetch(`${DEVICE_URL()}/api/v1/figure/${index}/get`, {method: "GET"});
 
 		console.log(response);
 

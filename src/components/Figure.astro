@@ -9,11 +9,11 @@ const {index} = Astro.props as Props;
 ---
 
 <div data-index={index} data-id={0} data-variant={0} data-status={0} class="figure">
-	<p>{index}</p>
+	<p class="index">{index + 1}</p>
 	<p class="name">
 		None
 	</p>
-	<div id="buttons">
+	<div class="buttons">
 		<button class="clearBtn">
 			Clear
 		</button>
