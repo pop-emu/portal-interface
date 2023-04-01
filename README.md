@@ -1,5 +1,5 @@
 # PicoWPortal interface
-This is the web interface for the PicoWEmulator. This allows you to control the device using a UI instead of through it's API.
+This is the web interface for the PicoWPortal. This allows you to control the device using a UI instead of through it's API.
 
 ## How to build
 To build, you first have to install all dependencies by running `yarn`.
