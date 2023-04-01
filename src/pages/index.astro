@@ -15,7 +15,7 @@ import "./index.css"
 	<body>
 		<div id="topMenu">
 			<h1>Portal Emulator</h1>
-			<input type="text" placeholder="0.0.0.0" pattern="^(?:[0-9]{1,3}\.){3}[0-9]{1,3}$" id="address" required>
+			<input type="text" maxlength="15" minlength="7" placeholder="0.0.0.0" pattern="^(?:[0-9]{1,3}\.){3}[0-9]{1,3}$" id="address" required>
 			<div id="buttons">
 				<button id="connect">Connect</button>
 				<button id="update">update</button>
