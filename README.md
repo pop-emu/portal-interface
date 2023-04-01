@@ -1,47 +1,14 @@
-# Astro Starter Kit: Minimal
+# PicoWPortal interface
+This is the web interface for the PicoWEmulator. This allows you to control the device using a UI instead of through it's API.
 
-```
-npm create astro@latest -- --template minimal
-```
+## How to build
+To build, you first have to install all dependencies by running `yarn`.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/minimal)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/minimal)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/minimal/devcontainer.json)
+### Development
+For development, you just have to run `yarn dev`. A development server should now have started.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+### Release
+For release, run `yarn build`. If you then want to preview the build, run `yarn preview`. A preview server will now have started.
 
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
-
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                | Action                                           |
-| :--------------------- | :----------------------------------------------- |
-| `npm install`          | Installs dependencies                            |
-| `npm run dev`          | Starts local dev server at `localhost:3000`      |
-| `npm run build`        | Build your production site to `./dist/`          |
-| `npm run preview`      | Preview your build locally, before deploying     |
-| `npm run astro ...`    | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+## How to get the device IP
+To get the IP address of the device, check out [the PicoWPortal repository](https://github.com/pop-emu/PicoWPortal/tree/master#how-to-acquire-the-ip-address-of-the-device).
