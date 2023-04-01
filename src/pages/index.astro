@@ -7,7 +7,7 @@ import "./index.css"
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" type="image/png" href="/favicon.png" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="generator" content={Astro.generator} />
 		<title>Astro</title>
@@ -64,6 +64,8 @@ import "./index.css"
 		console.log(response);
 
 		UpdateStatus();
+
+		element.value = "";
 	}
 
 	
@@ -142,7 +144,9 @@ import "./index.css"
 	{
 		const element = event.target! as HTMLElement;
 
-		const figure = element.parentNode! as HTMLElement;
+		const figure = element.parentElement!.parentElement!;
+
+		console.log(figure)
 
 		const index: number = parseInt(figure.dataset.index!);
 
@@ -157,7 +161,7 @@ import "./index.css"
 	{
 		const element = event.target! as HTMLElement;
 
-		const figure = element.parentNode! as HTMLElement;
+		const figure = element.parentElement!.parentElement!;
 
 		const index: number = parseInt(figure.dataset.index!);
 
@@ -183,7 +187,7 @@ import "./index.css"
 	{
 		const element = event.target! as HTMLElement;
 
-		const figure = element.parentNode! as HTMLElement;
+		const figure = element.parentElement!.parentElement!;
 
 		const index: number = parseInt(figure.dataset.index!);
 
